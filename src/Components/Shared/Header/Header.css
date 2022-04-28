@@ -3,7 +3,12 @@
     margin-right: 20px;
 }
 
-/* Nav a:hover {
-    color: lightgray;
-    font-weight: 700;
-} */
+.nav-link {
+    margin-left: 15px;
+    color: white;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: yellow;
+}
