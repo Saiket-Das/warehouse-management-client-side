@@ -8,7 +8,7 @@ import './Banner.css'
 const Banner = () => {
     return (
         <div>
-            <h2> <span className='text-danger'>WHAT</span> WE DO</h2>
+            <h2 className='text-center'> <span className='text-danger'>WHAT</span> WE DO</h2>
 
             <div className='banner mt-4'>
                 <Carousel >
