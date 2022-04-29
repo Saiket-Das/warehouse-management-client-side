@@ -48,9 +48,9 @@ const Header = () => {
                     </Nav>
 
 
-                    <Nav>
+                    <Nav className=''>
                         <Nav.Link
-                            as={Link} to='/blogs' className='nav-link text-black'>
+                            as={Link} to='/manageItems' className='nav-link text-black '>
                             Manage Items
                         </Nav.Link>
 

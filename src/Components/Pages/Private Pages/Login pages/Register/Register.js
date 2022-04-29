@@ -32,7 +32,7 @@ const Register = () => {
 
     let erroMsg;
     if (error) {
-        erroMsg = <p className='text-center'>{error.message.slice(22, -2)}</p>
+        erroMsg = <p className='text-center text-danger'>{error.message.slice(22, -2)}</p>
     }
 
 
@@ -46,7 +46,11 @@ const Register = () => {
 
     return (
         <div className='register-container mt-5'>
-            <div className='px-5 pt-3'>
+            <h2 className='text-center mt-4'>REGISTER HERE</h2>
+
+
+            {/* REGISTER FORM */}
+            <div className='px-5 pt-2'>
                 <form onSubmit={handleRegisterForm}>
 
                     <label htmlFor="">Your Name</label>
@@ -74,16 +78,13 @@ const Register = () => {
                     <p className='mt-3'>Already have an account?
                         <Link to="/login"
                             className='text-primary text-decoration-none'> Login here
-                        </Link> </p>
+                        </Link>
+                    </p>
 
 
                     <SocialLogin></SocialLogin>
 
-                    {/* <div className='d-flex justify-content-around'>
-                        <span><button className=' btn btn-link btn-link pe-auto text-decoration-none'>Forget password</button></span>
 
-                        <span><button className='btn btn-link pe-auto text-decoration-none'>Reset password</button></span>
-                    </div> */}
                 </form>
             </div>
         </div>

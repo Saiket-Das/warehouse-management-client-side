@@ -1,6 +1,7 @@
 import { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../../../firebase.init'
 import './Login.css'
 import Loading from '../../../../Shared/Loading/Loading';
@@ -13,7 +14,10 @@ const Login = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
     const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || '/';
 
+    // EMAIL & PASSWORD LOGIN 
     const [
         signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
@@ -22,28 +26,49 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password);
+        navigate(from, { replace: true });
+
+    }
+
+
+    // PASSWORD RESET 
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    const handlePassReset = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email)
+            toast('Email sent')
+        }
+        else {
+            toast('Please enter your email')
+        }
     }
 
     if (user) {
-        navigate('/')
+        // navigate('/')
     }
 
-    if (loading) {
+    if (loading || sending) {
         <Loading></Loading>
     }
 
     let erroMsg;
     if (error) {
-        erroMsg = <p className='text-center'>{error.message.slice(22, -2)}</p>
+        erroMsg = <p className='text-center text-danger'>{error.message.slice(22, -2)}</p>
     }
+
+
+
 
 
     return (
         <div className='login-container mt-5'>
             <h2 className='text-center m-4'>LOGIN HERE</h2>
 
-
             <div className='px-5 pt-3'>
+
+                {/* LOGIN FORM  */}
                 <form onSubmit={handleLoginForm}>
                     <label htmlFor="">Your Email</label>
                     <input type="email"
@@ -60,26 +85,42 @@ const Login = () => {
                     <br />
                     {erroMsg}
 
-
-                    <div className='d-flex justify-content-around'>
-                        <span><button className=' btn btn-link btn-link pe-auto text-decoration-none'>Forget password</button></span>
-
-                        <span><button className='btn btn-link pe-auto text-decoration-none'>Reset password</button></span>
-                    </div>
-
-                    <p className='mt-3'>New to Car Trader?
-                        <Link to="/register"
-                            className='text-primary text-decoration-none'> Please Register
-                        </Link>
-                    </p>
-
-                    <SocialLogin></SocialLogin>
                 </form>
+
+
+                {/* REGISTER LINK  */}
+                <p className='mt-3'>New to Car Trader?
+                    <Link to="/register"
+                        className='text-primary text-decoration-none'> Please Register
+                    </Link>
+                </p>
+
+
+                {/* FORGET & RESET PASSWORD  */}
+                <div className='d-flex justify-content-around'>
+                    <span>
+                        <button
+                            className=' btn btn-link btn-link pe-auto text-decoration-none'>
+                            Forget password
+                        </button>
+                    </span>
+
+                    <span>
+                        <button
+                            onClick={handlePassReset}
+                            className='btn btn-link pe-auto text-decoration-none'>
+                            Reset password
+                        </button>
+                    </span>
+                </div>
+
+                <SocialLogin></SocialLogin>
+
             </div>
 
 
 
-        </div>
+        </div >
     );
 };
 

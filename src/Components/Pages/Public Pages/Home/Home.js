@@ -29,8 +29,11 @@ const Home = () => {
             {/* SEE MORE BUTTON (NAV LINK) */}
             <Nav.Link
                 as={Link} to='/Inventory'
-                className='nav-link text-black d-flex justify-content-center'>
-                <button className="custom-btn"><span>See Details</span></button>
+                className='nav-link text-black d-flex justify-content-center w-25 mx-auto mb-5'>
+
+                <button style={{ width: '15rem' }} className="custom-btn p-2">
+                    <span >See More Car</span>
+                </button>
             </Nav.Link>
 
         </div >

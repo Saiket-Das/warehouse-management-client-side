@@ -1,43 +1,75 @@
 import React from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import { Card, ListGroup, Nav } from 'react-bootstrap';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import useCarDetails from '../../../../Hooks/useCarDetails';
 import './CarDetails.css'
+import useInventory from '../../../../Hooks/useInventory';
 
 
 const CarDetails = () => {
     const { carId } = useParams();
     const [carDetails] = useCarDetails(carId);
+    const navigate = useNavigate();
+
+    const bookItem = () => {
+        toast('Your item is booked')
+    }
+
+    // NAVIGATE TO MANAGE ITEM PAGE TO UPDATE 
+    const mangeNavigate = () => {
+        navigate('/manageItems')
+    }
+
+
 
     return (
         <div>
             <h2 className='text-center mt-5'> Car details of {carDetails.name}</h2>
 
-            <div className='w-50 mx-auto border d-flex align-items-center'>
+            <div className='details-update-container mx-auto border border-dark d-flex align-items-center mt-4'>
 
-
+                {/* CAR DETAILS  */}
                 <div>
                     <img className='p-4 details-car-img' src={carDetails.img} alt="" />
                 </div>
 
-                <div>
+
+                <div className='p-2'>
                     <h3>{carDetails.name}</h3>
-                    <h5>Brand: {carDetails.brand}</h5>
+                    {/* <h5>Brand: {carDetails.brand}</h5> */}
                     <Card className='details-listgroup mb-2'>
                         <ListGroup variant="flush">
+                            <ListGroup.Item>Brand: {carDetails.brand}</ListGroup.Item>
                             <ListGroup.Item>Price: RM {carDetails.price}</ListGroup.Item>
                             <ListGroup.Item>Quantity: {carDetails.quantity}</ListGroup.Item>
-                            <ListGroup.Item>Brand: {carDetails.brand}</ListGroup.Item>
+
                         </ListGroup>
                     </Card>
 
+
+                    {/* UPDATE BUTTONS */}
                     <div className='d-flex justify-content-around'>
-                        <button className="custom-btn details-btn">Add Quantity</button>
-                        <button className="custom-btn details-btn"><span>Book</span></button>
+
+                        {/* Manage Button  */}
+                        <button
+                            onClick={() => mangeNavigate()}
+                            className="custom-btn update-btn mr-3">
+                            Manage
+                        </button>
+
+                        {/* Book Button */}
+                        <button
+                            className="custom-btn update-btn mx-3">
+                            <span onClick={bookItem}>Book</span>
+                        </button>
+
+                        {/* Manage Button  */}
+
                     </div>
+
                 </div>
-
-
             </div>
         </div>
     );

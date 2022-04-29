@@ -1,11 +1,13 @@
 import React from 'react';
 import { Card, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useInventory from '../../../../Hooks/useInventory';
 import './Car.css'
 
 
 const Car = (props) => {
     const { _id, name, brand, price, img } = props.car
+
 
     return (
         <div className='car-card'>
@@ -30,9 +32,11 @@ const Car = (props) => {
                         <button className="custom-btn details-btn"><span>See Details</span></button>
                     </Nav.Link>
 
+
                 </Card.Body>
 
             </Card>
+
         </div>
     );
 };

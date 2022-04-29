@@ -1,0 +1,28 @@
+.add-car-container {
+    width: 500px;
+    height: 650px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+input[type=name],
+input[type=description],
+input[type=number],
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}

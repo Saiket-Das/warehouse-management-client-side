@@ -1,4 +1,6 @@
 import React from 'react';
+import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useInventory from '../../../Hooks/useInventory';
 import Car from './Car/Car';
 import './Inventory.css'
@@ -17,6 +19,12 @@ const Inventory = () => {
                 </div>
             </div>
 
+
+            <Nav.Link
+                as={Link} to={'/addCar'}
+                className='nav-link text-black d-flex justify-content-center'>
+                <button style={{ width: '20rem' }} className="custom-btn details-btn"><span>Add new car to the Inventory</span></button>
+            </Nav.Link>
         </div>
     );
 };

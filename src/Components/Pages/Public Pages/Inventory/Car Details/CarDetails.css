@@ -1,7 +1,55 @@
+.details-update-container {
+    width: 850px;
+}
+
 .details-car-img {
     width: 28rem;
 }
 
 .details-listgroup {
-    width: 15rem;
+    width: 22em;
+}
+
+.car-card {
+    margin-bottom: 40px;
+}
+
+
+.update-btn {
+    background: rgb(159, 159, 159);
+    color: #fff;
+    line-height: 35px;
+    width: 100px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+}
+
+.update-btn:hover {
+    background: transparent;
+    color: #000;
+    box-shadow:
+        -7px -7px 20px 0px #fff9,
+        -4px -4px 5px 0px #fff9,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001;
+}
+
+.update-btn:before,
+.update-btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #000;
+    transition: 400ms ease all;
+}
+
+.update-btn:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
 }
