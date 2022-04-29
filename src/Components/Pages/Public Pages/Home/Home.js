@@ -32,6 +32,7 @@ const Home = () => {
                 className='nav-link text-black d-flex justify-content-center'>
                 <button className="custom-btn"><span>See Details</span></button>
             </Nav.Link>
+
         </div >
     );
 };
