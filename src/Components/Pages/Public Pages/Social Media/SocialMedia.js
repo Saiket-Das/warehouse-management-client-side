@@ -14,29 +14,50 @@ const SocialMedia = () => {
 
                 <div className='d-flex '>
                     <ul className="wrapper mx-auto">
-                        <li className="icon facebook">
-                            <span className="tooltip">Facebook</span>
-                            <span> <FontAwesomeIcon icon={faFacebookF} /></span>
-                        </li>
-                        <li className="icon twitter">
-                            <span className="tooltip">Twitter</span>
-                            <span><FontAwesomeIcon icon={faTwitter} /></span>
-                        </li>
-                        <li className="icon instagram">
-                            <span className="tooltip">Instagram</span>
-                            <span><FontAwesomeIcon icon={faInstagram} /></span>
-                        </li>
-                        <li className="icon github">
-                            <span className="tooltip">Github</span>
-                            <span><FontAwesomeIcon icon={faGithub} /></span>
-                        </li>
-                        <li className="icon youtube">
-                            <span className="tooltip">Youtube</span>
-                            <span><FontAwesomeIcon icon={faYoutube} /></span>
-                        </li>
-                    </ul>
-                </div>
 
+                        {/* --------------- FACEBOOK --------------- */}
+                        <a href="https://www.facebook.com/ahan.bryan.96/" target="_blank" rel="noopener noreferrer">
+                            <li className="icon facebook">
+                                <span className="tooltip">Facebook</span>
+                                <span>  <FontAwesomeIcon icon={faFacebookF} /></span>
+                            </li>
+                        </a>
+
+                        {/* --------------- TWITTER --------------- */}
+                        <a href="https://twitter.com/twitter" target="_blank" rel="noopener noreferrer">
+                            <li className="icon twitter">
+                                <span className="tooltip">Twitter</span>
+                                <span><FontAwesomeIcon icon={faTwitter} /></span>
+                            </li>
+                        </a>
+
+                        {/* --------------- INSTAGRAM --------------- */}
+                        <a href="https://www.instagram.com/ahan_bryan/" target="_blank" rel="noopener noreferrer">
+                            <li className="icon instagram">
+                                <span className="tooltip">Instagram</span>
+                                <span><FontAwesomeIcon icon={faInstagram} /></span>
+                            </li>
+                        </a>
+
+                        {/* --------------- GITHUB --------------- */}
+                        <a href="https://github.com/Saiket-Das" target="_blank" rel="noopener noreferrer">
+                            <li className="icon github">
+                                <span className="tooltip">Github</span>
+                                <span><FontAwesomeIcon icon={faGithub} /></span>
+                            </li>
+                        </a>
+
+                        {/* --------------- YOUTUBE --------------- */}
+                        <a href="https://www.youtube.com/channel/UCC4x3A5-5YYgtslyNXZe_xw" target="_blank" rel="noopener noreferrer">
+                            <li className="icon youtube">
+                                <span className="tooltip">Youtube</span>
+                                <span><FontAwesomeIcon icon={faYoutube} /></span>
+                            </li>
+                        </a>
+                    </ul>
+
+
+                </div>
             </div>
         </div>
     );
