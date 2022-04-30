@@ -9,7 +9,13 @@ const Inventory = () => {
     const [cars] = useInventory()
     return (
         <div>
-            <h2 className='text-center mt-5'>INVENTORY {cars.length}</h2>
+            <h2 className='text-center mt-5'>OUR INVENTORY</h2>
+
+            <Nav.Link
+                as={Link} to={'/addCar'}
+                className='nav-link text-black d-flex justify-content-center'>
+                <button style={{ width: '20rem' }} className="custom-btn details-btn"><span>Add new car to the Inventory</span></button>
+            </Nav.Link>
 
             <div className="container mt-4">
                 <div className="row">
@@ -20,11 +26,6 @@ const Inventory = () => {
             </div>
 
 
-            <Nav.Link
-                as={Link} to={'/addCar'}
-                className='nav-link text-black d-flex justify-content-center'>
-                <button style={{ width: '20rem' }} className="custom-btn details-btn"><span>Add new car to the Inventory</span></button>
-            </Nav.Link>
         </div>
     );
 };

@@ -6,6 +6,7 @@ import auth from '../../../../../firebase.init'
 import './Login.css'
 import Loading from '../../../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { async } from '@firebase/util';
 
 
 
@@ -15,25 +16,46 @@ const Login = () => {
     const passwordRef = useRef('')
     const navigate = useNavigate()
     const location = useLocation()
+
     let from = location.state?.from?.pathname || '/';
+    let errorMsg;
+
 
     // EMAIL & PASSWORD LOGIN 
     const [
-        signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
 
+    // PASSWORD RESET 
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
+
+
+    if (error) {
+        errorMsg = <p className='text-center text-danger'>{error?.message.slice(22, -2)}</p>
+    }
     const handleLoginForm = event => {
         event.preventDefault()
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password);
-        navigate(from, { replace: true });
+
 
     }
 
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+
 
     // PASSWORD RESET 
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-
     const handlePassReset = async () => {
         const email = emailRef.current.value;
         if (email) {
@@ -45,18 +67,6 @@ const Login = () => {
         }
     }
 
-    if (user) {
-        // navigate('/')
-    }
-
-    if (loading || sending) {
-        <Loading></Loading>
-    }
-
-    let erroMsg;
-    if (error) {
-        erroMsg = <p className='text-center text-danger'>{error.message.slice(22, -2)}</p>
-    }
 
 
 
@@ -82,11 +92,10 @@ const Login = () => {
                         required />
 
                     <input type="submit" value="Login" />
-                    <br />
-                    {erroMsg}
-
                 </form>
 
+
+                {errorMsg}
 
                 {/* REGISTER LINK  */}
                 <p className='mt-3'>New to Car Trader?

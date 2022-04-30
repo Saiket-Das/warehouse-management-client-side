@@ -1,9 +1,11 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import './AddNewCar.css'
 
 const AddNewCar = () => {
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate()
 
     const addNewCar = data => {
         const url = 'http://localhost:5000/inventory';
@@ -15,7 +17,7 @@ const AddNewCar = () => {
             body: JSON.stringify(data)
         })
             .then(res => res.json)
-            .then(result => { console.log(result) })
+            .then(result => { navigate('/inventory') })
     };
 
     return (

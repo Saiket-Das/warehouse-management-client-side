@@ -16,7 +16,7 @@ const Header = () => {
         signOut(auth)
     }
     return (
-        <Navbar bg="success" expand="lg">
+        <Navbar bg="lg" expand="lg">
             <Container className='p-2'>
 
                 <Navbar.Brand as={Link} to='/'>
@@ -45,19 +45,20 @@ const Header = () => {
                             Blogs
                         </Nav.Link>
 
-                    </Nav>
-
-
-                    <Nav className=''>
                         <Nav.Link
-                            as={Link} to='/manageItems' className='nav-link text-black '>
+                            as={Link} to='/manageItems' className='nav-link text-black'>
                             Manage Items
                         </Nav.Link>
 
                         <Nav.Link
-                            as={Link} to='/blogs' className='nav-link text-black'>
-                            My Items
+                            as={Link} to='/myOrderList' className='nav-link text-black'>
+                            Order List
                         </Nav.Link>
+
+                    </Nav>
+
+
+                    <Nav>
 
                         {
                             user ?

@@ -7,7 +7,7 @@ const useInventory = () => {
             .then(res => res.json())
             .then(data => setCars(data))
     }, [])
-    return [cars]
+    return [cars, setCars]
 }
 
 export default useInventory;

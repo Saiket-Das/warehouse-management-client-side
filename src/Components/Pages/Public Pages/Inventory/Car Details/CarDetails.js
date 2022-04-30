@@ -1,11 +1,8 @@
 import React from 'react';
-import { toast } from 'react-toastify';
-
-import { Card, ListGroup, Nav } from 'react-bootstrap';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Card, ListGroup } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
 import useCarDetails from '../../../../Hooks/useCarDetails';
 import './CarDetails.css'
-import useInventory from '../../../../Hooks/useInventory';
 
 
 const CarDetails = () => {
@@ -13,9 +10,11 @@ const CarDetails = () => {
     const [carDetails] = useCarDetails(carId);
     const navigate = useNavigate();
 
-    const bookItem = () => {
-        toast('Your item is booked')
-    }
+
+    const bookItem = (carId) => {
+        navigate(`/checkout/${carId}`)
+    };
+
 
     // NAVIGATE TO MANAGE ITEM PAGE TO UPDATE 
     const mangeNavigate = () => {
@@ -62,10 +61,8 @@ const CarDetails = () => {
                         {/* Book Button */}
                         <button
                             className="custom-btn update-btn mx-3">
-                            <span onClick={bookItem}>Book</span>
+                            <span onClick={() => bookItem(carId, carDetails)}>Book</span>
                         </button>
-
-                        {/* Manage Button  */}
 
                     </div>
 

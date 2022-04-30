@@ -1,0 +1,28 @@
+.service-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.service-card:hover {
+    border: 1px solid black;
+}
+
+.service-description {
+    font-weight: 350;
+}
+
+@media only screen and (max-width: 820px) {
+    .service-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .service-row {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 0 auto;
+    }
+}

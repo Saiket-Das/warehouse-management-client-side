@@ -13,7 +13,7 @@ const RequireAuth = ({ children }) => {
     const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
     if (loading || sending) {
-        <Loading></Loading>
+        return <Loading></Loading>
     }
 
     if (!user) {
@@ -21,23 +21,22 @@ const RequireAuth = ({ children }) => {
     }
 
     if (user.providerData[0]?.providerId === 'password' && !user.emailVerified) {
-        return (
-            <div className='text-center mt-5'>
-                <img style={{ width: "8rem" }} src={verifyEMailImg} alt="" />
-                <h3 className='text-danger'>Your Email is not verified!!</h3>
+        return <div className='text-center mt-5'>
+            <img style={{ width: "8rem" }} src={verifyEMailImg} alt="" />
+            <h3 className='text-danger'>Your Email is not verified!!</h3>
 
-                <button
-                    className='btn verify-btn'
-                    onClick={async () => {
-                        await sendEmailVerification();
-                        toast('Sent email');
-                    }}
-                >
-                    Send Verification Email Again
-                </button>
+            <button
+                className='btn verify-btn'
+                onClick={async () => {
+                    await sendEmailVerification();
+                    toast('Sent email');
+                }}
+            >
+                Send Verification Email Again
+            </button>
 
-            </div>
-        );
+        </div>
+
     };
 
     return children;

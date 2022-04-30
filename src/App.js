@@ -12,6 +12,8 @@ import NotFound from './Components/Shared/Not Found/NotFound';
 import RequireAuth from './Components/Pages/Private Pages/Login pages/Require Auth/RequireAuth';
 import ManageItems from './Components/Pages/Private Pages/Manage Items/ManageItems';
 import AddNewCar from './Components/Pages/Public Pages/Inventory/AddCar/AddNewCar';
+import CheckOut from './Components/Pages/Private Pages/Checkout/Checkout'
+import MyOrder from './Components/Pages/Private Pages/My Order List/MyOrder';
 
 function App() {
   return (
@@ -27,7 +29,6 @@ function App() {
         <Route path='/inventory' element={<Inventory></Inventory>}>Imventory</Route>
         <Route path='/inventory/:carId' element={<CarDetails></CarDetails>}>Imventory</Route>
 
-        <Route path='/addCar' element={<AddNewCar></AddNewCar>}>Add New Car</Route>
 
 
 
@@ -38,8 +39,22 @@ function App() {
           </RequireAuth>}
         ></Route>
 
-        <Route path='/manageItems' element={
+        <Route path='/addCar' element={
           <RequireAuth>
+            <AddNewCar></AddNewCar>
+          </RequireAuth>}
+        ></Route>
+
+
+        <Route path='/checkout/:carId' element={
+          <RequireAuth>
+            <CheckOut></CheckOut>
+          </RequireAuth>}
+        ></Route>
+
+        <Route path='/myOrderList' element={
+          <RequireAuth>
+            <MyOrder></MyOrder>
           </RequireAuth>}
         ></Route>
 

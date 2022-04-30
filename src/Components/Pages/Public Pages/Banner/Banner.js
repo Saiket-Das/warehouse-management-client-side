@@ -10,7 +10,7 @@ const Banner = () => {
         <div>
             <h2 className='text-center'> <span className='text-danger'>WHAT</span> WE DO</h2>
 
-            <div className='banner mt-4'>
+            <div className='banner mt-4 mb-5'>
                 <Carousel >
                     <Carousel.Item>
                         <img

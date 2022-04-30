@@ -4,7 +4,7 @@ import './ManageItems.css'
 
 
 const ManageItems = () => {
-    const [cars, setCars] = useInventory()
+    const [cars, setCars] = useInventory([])
 
     const deleteItem = (id) => {
         const areYouSure = window.confirm('Are you sure?')

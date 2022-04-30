@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useInventory from '../../../../Hooks/useInventory';
 import './Car.css'
 
 
