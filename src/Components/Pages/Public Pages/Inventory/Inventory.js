@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useInventory from '../../../Hooks/useInventory';
@@ -6,7 +6,30 @@ import Car from './Car/Car';
 import './Inventory.css'
 
 const Inventory = () => {
-    const [cars] = useInventory()
+    const [cars] = useInventory();
+
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState(8);
+    const [selectedCars, setSelectedCars] = useState([]);
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/inventory?page=${page}&size=${size}`)
+            .then(res => res.json())
+            .then(data => setSelectedCars(data));
+    }, [page, size]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/totalCar')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count;
+                const pages = Math.ceil(count / 8);
+                setPageCount(pages);
+            })
+    }, [])
+
     return (
         <div>
             <h2 className='text-center mt-5'>OUR INVENTORY</h2>
@@ -20,13 +43,38 @@ const Inventory = () => {
             <div className="container mt-4">
                 <div className="row">
                     {
-                        cars.map(car => <Car key={car._id} car={car}></Car>)
+                        selectedCars.map(car => <Car key={car._id} car={car}></Car>)
                     }
                 </div>
             </div>
+            {/* <div className="container mt-4">
+                <div className="row">
+                    {
+                        cars.map(car => <Car key={car._id} car={car}></Car>)
+                    }
+                </div>
+            </div> */}
 
+            <div className='pagination w-25 mx-auto'>
+                {
+                    [...Array(pageCount).keys()]
+                        .map(number => <button
+                            className={page === number ? 'selected' : ''}
+                            onClick={() => setPage(number)}
+                        >{number + 1}</button>)
+                }
 
-        </div>
+                <select onChange={event =>
+                    setSize(event.target.value)
+                }>
+                    <option value="6" >6</option>
+                    <option value="8" selected>8</option>
+                    <option value="12">12</option>
+                    <option value="16">16</option>
+                </select>
+            </div>
+
+        </div >
     );
 };
 

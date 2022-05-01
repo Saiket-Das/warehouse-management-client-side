@@ -19,7 +19,7 @@ const MyItems = () => {
     }, [])
 
     return (
-        <div className='my-itemsc-container mx-auto' >
+        <div className='my-items-container mx-auto' >
             <h2 className='mt-5 text-center'>MY ADDED {myItems.length} ITEMS</h2>
 
 
