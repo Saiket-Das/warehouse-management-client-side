@@ -17,9 +17,9 @@ const Services = () => {
                 <div className='service-row'>
 
                     {/* --------------- SERVICE ONE --------------- */}
-                    <Card className='service-card' style={{ width: '18rem' }}>
-                        <Card.Img className='service-img p-4' variant="top" src={InsuranceImg} />
-                        <Card.Body className='text-center'>
+                    <Card className='service-card' style={{ width: '20rem' }}>
+                        <Card.Img className='service-img mt-4' variant="top" src={InsuranceImg} />
+                        <Card.Body className='text-center mt-3'>
                             <Card.Title >CAR INSURANCE</Card.Title>
                             <Card.Text className='service-description'>
                                 Some quick example text to build on the card title and make up the bulk of
@@ -31,8 +31,8 @@ const Services = () => {
 
                     {/* --------------- SERVICE TWO --------------- */}
                     <Card className='service-card' style={{ width: '18rem' }}>
-                        <Card.Img className='service-img p-5' variant="top" src={EssentialsImg} />
-                        <Card.Body className='text-center'>
+                        <Card.Img className='service-img mt-4' variant="top" src={EssentialsImg} />
+                        <Card.Body className='text-center mt-3'>
                             <Card.Title>CAR ACCESSORIES</Card.Title>
                             <Card.Text className='service-description'>
                                 Some quick example text to build on the card title and make up the bulk of
@@ -44,8 +44,8 @@ const Services = () => {
 
                     {/* --------------- SERVICE THREE ---------------  */}
                     <Card className='service-card' style={{ width: '18rem' }}>
-                        <Card.Img className='service-img p-5' variant="top" src={LoanImg} />
-                        <Card.Body className='text-center'>
+                        <Card.Img className='service-img mt-4' variant="top" src={LoanImg} />
+                        <Card.Body className='text-center mt-3'>
                             <Card.Title>CAR FINANCE & LOAN</Card.Title>
                             <Card.Text className='service-description'>
                                 Some quick example text to build on the card title and make up the bulk of
@@ -57,8 +57,8 @@ const Services = () => {
 
                     {/* --------------- SERVICE FOUR ---------------  */}
                     <Card className='service-card' style={{ width: '18rem' }}>
-                        <Card.Img className='service-img p-5' variant="top" src={CheckupImg} />
-                        <Card.Body className='text-center'>
+                        <Card.Img className='service-img mt-4' variant="top" src={CheckupImg} />
+                        <Card.Body className='text-center mt-3'>
                             <Card.Title>CHECK CAR'S HISTORY</Card.Title>
                             <Card.Text className='service-description'>
                                 Some quick example text to build on the card title and make up the bulk of

@@ -1,11 +1,14 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
+import auth from '../../../../../firebase.init';
 import './AddNewCar.css'
 
 const AddNewCar = () => {
     const { register, handleSubmit } = useForm();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [user] = useAuthState(auth);
 
     const addNewCar = data => {
         const url = 'http://localhost:5000/inventory';
@@ -26,6 +29,8 @@ const AddNewCar = () => {
 
             <div className='add-car-container mt-4'>
                 <form className='d-flex flex-column p-5' onSubmit={handleSubmit(addNewCar)}>
+                    <input className='mt-3' type='email' placeholder='Your Email' readOnly disabled {...register('email', { value: `${user.email}` }, { maxLength: 20 })} />
+
                     <input className='mt-3' type='name' placeholder='Car name' {...register('name', { required: true, maxLength: 20 })} />
 
                     <input className='mt-3' type='name' placeholder='Brand name' {...register('brand', { required: true, maxLength: 20 })} />

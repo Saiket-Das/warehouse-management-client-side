@@ -8,7 +8,11 @@ import './Banner.css'
 const Banner = () => {
     return (
         <div>
-            <h2 className='text-center'> <span className='text-danger'>WHAT</span> WE DO</h2>
+            <h2 className='text-center'> WHAT WE
+                <span className='text-secondary'> DO</span>
+                <span> & OUR</span>
+                <span className='text-secondary'> SERVICES</span>
+            </h2>
 
             <div className='banner mt-4 mb-5'>
                 <Carousel >

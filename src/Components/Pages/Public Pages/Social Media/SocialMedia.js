@@ -23,6 +23,14 @@ const SocialMedia = () => {
                             </li>
                         </a>
 
+                        {/* --------------- INSTAGRAM --------------- */}
+                        <a href="https://www.instagram.com/ahan_bryan/" target="_blank" rel="noopener noreferrer">
+                            <li className="icon instagram">
+                                <span className="tooltip">Instagram</span>
+                                <span><FontAwesomeIcon icon={faInstagram} /></span>
+                            </li>
+                        </a>
+
                         {/* --------------- TWITTER --------------- */}
                         <a href="https://twitter.com/twitter" target="_blank" rel="noopener noreferrer">
                             <li className="icon twitter">
@@ -31,11 +39,12 @@ const SocialMedia = () => {
                             </li>
                         </a>
 
-                        {/* --------------- INSTAGRAM --------------- */}
-                        <a href="https://www.instagram.com/ahan_bryan/" target="_blank" rel="noopener noreferrer">
-                            <li className="icon instagram">
-                                <span className="tooltip">Instagram</span>
-                                <span><FontAwesomeIcon icon={faInstagram} /></span>
+
+                        {/* --------------- YOUTUBE --------------- */}
+                        <a href="https://www.youtube.com/channel/UCC4x3A5-5YYgtslyNXZe_xw" target="_blank" rel="noopener noreferrer">
+                            <li className="icon youtube">
+                                <span className="tooltip">Youtube</span>
+                                <span><FontAwesomeIcon icon={faYoutube} /></span>
                             </li>
                         </a>
 
@@ -47,13 +56,6 @@ const SocialMedia = () => {
                             </li>
                         </a>
 
-                        {/* --------------- YOUTUBE --------------- */}
-                        <a href="https://www.youtube.com/channel/UCC4x3A5-5YYgtslyNXZe_xw" target="_blank" rel="noopener noreferrer">
-                            <li className="icon youtube">
-                                <span className="tooltip">Youtube</span>
-                                <span><FontAwesomeIcon icon={faYoutube} /></span>
-                            </li>
-                        </a>
                     </ul>
 
 

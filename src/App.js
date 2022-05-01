@@ -14,6 +14,7 @@ import ManageItems from './Components/Pages/Private Pages/Manage Items/ManageIte
 import AddNewCar from './Components/Pages/Public Pages/Inventory/AddCar/AddNewCar';
 import CheckOut from './Components/Pages/Private Pages/Checkout/Checkout'
 import MyOrder from './Components/Pages/Private Pages/My Order List/MyOrder';
+import MyItems from './Components/Pages/Private Pages/My Items/MyItems';
 
 function App() {
   return (
@@ -55,6 +56,12 @@ function App() {
         <Route path='/myOrderList' element={
           <RequireAuth>
             <MyOrder></MyOrder>
+          </RequireAuth>}
+        ></Route>
+
+        <Route path='/myItems' element={
+          <RequireAuth>
+            <MyItems></MyItems>
           </RequireAuth>}
         ></Route>
 

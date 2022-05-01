@@ -55,6 +55,11 @@ const Header = () => {
                             Order List
                         </Nav.Link>
 
+                        <Nav.Link
+                            as={Link} to='/myItems' className='nav-link text-black'>
+                            My Items
+                        </Nav.Link>
+
                     </Nav>
 
 

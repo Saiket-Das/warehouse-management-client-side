@@ -23,7 +23,7 @@ const ManageItems = () => {
 
     return (
         <div>
-            <div className='w-50 mx-auto text-center mt-5'>
+            <div className='inventory-container mx-auto text-center mt-5'>
                 <h2> MANAGE INVENTORY</h2>
 
                 {
@@ -41,13 +41,19 @@ const ManageItems = () => {
 
                                     {/* TITLE  */}
                                     <div className="description mt-2">
-                                        <h5>{car.name}</h5>
+                                        <h5 className='brand-name'>{car.name}</h5>
                                     </div>
 
+                                    <div className='mt-4 me-5'>
+                                        <ul className='list-unstyled inventory-ul'>
+                                            <li>Brand: {car.brand}</li>
+                                            <li>Quantity: {car.quantity}</li>
+                                        </ul>
+                                    </div>
 
                                     {/* BUTTONS  */}
 
-                                    <div className='d-flex mt-3 '>
+                                    <div className='update-delete-button mt-3 '>
                                         <div>
                                             <button
 

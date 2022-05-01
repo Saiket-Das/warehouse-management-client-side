@@ -2,6 +2,7 @@ import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useInventory from '../../../Hooks/useInventory';
+import Footer from '../../../Shared/Foooter/Footer';
 import Banner from '../Banner/Banner';
 import Car from '../Inventory/Car/Car';
 import Services from '../Services/Services';
@@ -17,8 +18,9 @@ const Home = () => {
 
             <Banner></Banner>
 
+            {/*  w-75 */}
             <hr />
-            <div className='inventory-container'>
+            <div className='container'>
                 <h2 className='text-center'>OUR INVENTORY</h2>
                 <div className=" container mt-5">
                     <div className="row">
@@ -44,6 +46,8 @@ const Home = () => {
 
             <hr />
             <SocialMedia></SocialMedia>
+
+            <Footer></Footer>
 
         </div >
     );
