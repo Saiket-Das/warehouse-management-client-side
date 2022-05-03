@@ -15,6 +15,7 @@ import AddNewCar from './Components/Pages/Public Pages/Inventory/AddCar/AddNewCa
 import CheckOut from './Components/Pages/Private Pages/Checkout/Checkout'
 import MyOrder from './Components/Pages/Private Pages/My Order List/MyOrder';
 import MyItems from './Components/Pages/Private Pages/My Items/MyItems';
+import EditDetails from './Components/Pages/Public Pages/Inventory/EditDetails/EditDetails';
 
 function App() {
   return (
@@ -56,6 +57,12 @@ function App() {
         <Route path='/myOrderList' element={
           <RequireAuth>
             <MyOrder></MyOrder>
+          </RequireAuth>}
+        ></Route>
+
+        <Route path='/editDetails/:carId' element={
+          <RequireAuth>
+            <EditDetails></EditDetails>
           </RequireAuth>}
         ></Route>
 

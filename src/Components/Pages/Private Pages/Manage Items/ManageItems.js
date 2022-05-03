@@ -1,9 +1,13 @@
 import React from 'react';
+import { Nav } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 import useInventory from '../../../Hooks/useInventory';
+import EditDetails from '../../Public Pages/Inventory/EditDetails/EditDetails';
 import './ManageItems.css'
 
 
 const ManageItems = () => {
+    const navigate = useNavigate()
     const [cars, setCars] = useInventory([])
 
     const deleteItem = (id) => {
@@ -19,6 +23,11 @@ const ManageItems = () => {
                     setCars(remainCars)
                 })
         }
+    }
+
+    const handleEditDeatils = (car) => {
+        navigate(`/editDetails/${car._id}`)
+
     }
 
     return (
@@ -56,9 +65,9 @@ const ManageItems = () => {
                                     <div className='update-delete-button mt-3 '>
                                         <div>
                                             <button
-
+                                                onClick={() => handleEditDeatils(car)}
                                                 className="custom-btn update-btn manage-delete-btn">
-                                                Update
+                                                Edit
                                             </button>
                                         </div>
                                         <div>

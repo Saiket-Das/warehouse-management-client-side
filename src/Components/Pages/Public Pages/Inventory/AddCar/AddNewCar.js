@@ -35,7 +35,7 @@ const AddNewCar = () => {
 
                     <input className='mt-3' type='name' placeholder='Brand name' {...register('brand', { required: true, maxLength: 20 })} />
 
-                    <input className='mt-3' placeholder='price' type='number' {...register('price')} />
+                    <input className='mt-3' placeholder='Price' type='number' {...register('price')} />
 
                     <input className='mt-3' placeholder='Available Quantity' type='number' {...register('quantity')} />
 

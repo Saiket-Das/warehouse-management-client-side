@@ -47,13 +47,6 @@ const Inventory = () => {
                     }
                 </div>
             </div>
-            {/* <div className="container mt-4">
-                <div className="row">
-                    {
-                        cars.map(car => <Car key={car._id} car={car}></Car>)
-                    }
-                </div>
-            </div> */}
 
             <div className='pagination w-25 mx-auto'>
                 {

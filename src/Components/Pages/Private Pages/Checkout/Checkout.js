@@ -4,7 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../../firebase.init';
 import useCarDetails from '../../../Hooks/useCarDetails';
-// import useInventory from '../../../Hooks/useInventory';
 
 
 
@@ -15,14 +14,15 @@ const Checkout = () => {
     const navigate = useNavigate();
 
     const bookYourCar = event => {
-        event.preventDefault()
 
+        // --------------- ADD ITEM TO ORDER LIST -----------------
+        event.preventDefault()
         const order = {
             img: carDetails.img,
             email: user.email,
             car: carDetails.name,
             brandName: carDetails.brand,
-            carId: carDetails._id,
+            carID: carDetails._id,
             name: event.target.name.value,
             address: event.target.address.value,
             phone: event.target.phone.value,
@@ -30,8 +30,6 @@ const Checkout = () => {
         const url = 'http://localhost:5000/order';
         axios.post(url, order)
             .then(respone => {
-
-                console.log(respone);
                 const { data } = respone;
                 if (data.insertedId) {
                     toast('Your order is booked')
@@ -39,8 +37,31 @@ const Checkout = () => {
                 }
             })
 
-    }
 
+
+        // --------------- UPDATE QUANTITY -----------------
+
+        const quantity = carDetails.quantity;
+        const updateQuantity = quantity - 1;
+
+        const updateData = { updateQuantity };
+
+        const idURL = `http://localhost:5000/inventory/${carId}`;
+        fetch(idURL, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                event.target.reset();
+                navigate(`/inventory/${carId}`)
+            })
+
+    }
 
 
     return (
@@ -60,7 +81,9 @@ const Checkout = () => {
 
                     <input className='w-75' type="text" name="phone" id="" placeholder='Your Phone number' required autoComplete='off' /><br /><br />
 
-                    <input className='w-75' type="submit" value="Place Order" />
+                    <input
+                        // onClick={() => handleBookingQuantity(carDetails)}
+                        className='w-75' type="submit" value="Place Order" />
                 </form>
             </div>
         </div>

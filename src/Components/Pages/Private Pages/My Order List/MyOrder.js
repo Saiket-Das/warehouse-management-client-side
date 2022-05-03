@@ -1,19 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../../firebase.init';
+
+import useOrder from '../../../Hooks/useOrder';
 
 const MyOrder = () => {
-    const [orders, serOrder] = useState([])
-    const [user] = useAuthState(auth)
-    const userEmail = user.email;
 
-    const url = `http://localhost:5000/order?email=${userEmail}`;
+    const [orders, serOrder] = useOrder()
+    console.log(orders)
 
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => serOrder(data))
-    }, [])
+
+    const deleteItem = (id) => {
+        const URL = `http://localhost:5000/order/${id}`;
+
+        const areYouSure = window.confirm('Are you sure?')
+        if (areYouSure) {
+            fetch(URL, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const remainingOrders = orders.filter(order => order._id !== id);
+                    serOrder(remainingOrders)
+                })
+        }
+    }
+
 
     return (
         <div>
@@ -45,7 +54,7 @@ const MyOrder = () => {
                                     </div>
                                     <div>
                                         <button
-
+                                            onClick={() => deleteItem(order._id)}
                                             className="custom-btn update-btn ">
                                             Delete
                                         </button>
