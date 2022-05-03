@@ -6,12 +6,7 @@ const Footer = () => {
         <div className='bg-dark '>
             <div className='container'>
                 <footer className="footer  mx-auto bg-dark">
-                    {/* <div className="footer__addr">
-                        <h1 className="footer__logo">Something</h1>
 
-                        <h2>Contact</h2>
-
-                    </div> */}
 
                     <ul className="footer__nav mx-auto text-center">
                         <li className="nav__item">
@@ -25,11 +20,11 @@ const Footer = () => {
                         </li>
 
                         <li className="nav__item ">
-                            <h2 className="nav__title">Technology</h2>
+                            <h2 className="nav__title">Services</h2>
                             <ul className="nav__ul ">
-                                <li>Hardware accessories</li>
-                                <li>Software accessories</li>
-                                <li>Digital strategy</li>
+                                <li>Car Resell</li>
+                                <li>Accessories Sell</li>
+                                <li>Financial Support</li>
                             </ul>
                         </li>
 

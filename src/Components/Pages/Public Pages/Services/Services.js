@@ -17,7 +17,7 @@ const Services = () => {
                 <div className='service-row'>
 
                     {/* --------------- SERVICE ONE --------------- */}
-                    <Card className='service-card' style={{ width: '20rem' }}>
+                    <Card className='service-card' style={{ width: '18rem' }}>
                         <Card.Img className='service-img mt-4' variant="top" src={InsuranceImg} />
                         <Card.Body className='text-center mt-3'>
                             <Card.Title >CAR INSURANCE</Card.Title>

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Card, Nav } from 'react-bootstrap';
+import { Card, ListGroup, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Car.css'
 
 
 const Car = (props) => {
-    const { _id, name, brand, price, img } = props.car
+    const { _id, name, brand, price, img, quantity, description } = props.car
 
 
     return (
@@ -17,18 +17,17 @@ const Car = (props) => {
                     <Card.Title>{name}</Card.Title>
                     <p>Brand: {brand}</p>
                     <p>Price: RM {price}</p>
-                    {/* <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                    </Card.Text> */}
 
-
+                    <ListGroup horizontal >
+                        <ListGroup.Item>Quantity: {quantity}</ListGroup.Item>
+                        <ListGroup.Item>{description}</ListGroup.Item>
+                    </ListGroup>
 
 
                     <Nav.Link
                         as={Link} to={`/Inventory/${_id}`}
                         className='nav-link text-black d-flex justify-content-center'>
-                        <button className="custom-btn details-btn"><span>See Details</span></button>
+                        <button className="custom-btn details-btn"><span>Read more</span></button>
                     </Nav.Link>
 
 

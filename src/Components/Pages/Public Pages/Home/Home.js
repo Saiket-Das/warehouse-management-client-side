@@ -3,6 +3,7 @@ import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useInventory from '../../../Hooks/useInventory';
 import Footer from '../../../Shared/Foooter/Footer';
+import CustomerReview from '../../../Shared/Review/CustomerReview';
 import Banner from '../Banner/Banner';
 import Car from '../Inventory/Car/Car';
 import Services from '../Services/Services';
@@ -34,7 +35,7 @@ const Home = () => {
             {/* SEE MORE BUTTON (NAV LINK) */}
             <Nav.Link
                 as={Link} to='/inventory'
-                className='nav-link text-black d-flex justify-content-center bg-light w-25 mx-auto mb-5'>
+                className='nav-link text-black d-flex justify-content-center w-25 mx-auto mb-5'>
 
                 <button style={{ width: '15rem' }} className="custom-btn p-2">
                     <span >See More Car</span>
@@ -43,6 +44,9 @@ const Home = () => {
 
             <hr />
             <Services></Services>
+
+            <hr />
+            <CustomerReview></CustomerReview>
 
             <hr />
             <SocialMedia></SocialMedia>

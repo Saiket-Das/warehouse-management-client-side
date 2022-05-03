@@ -1,0 +1,17 @@
+.container-center {
+    margin: auto;
+}
+
+.rating-card-style {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.rating-card-style:hover {
+    border: 1px solid rgb(214, 168, 0);
+
+}
+
+.star-icon {
+    color: orange;
+}
