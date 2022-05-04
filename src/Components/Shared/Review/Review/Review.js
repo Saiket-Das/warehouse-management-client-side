@@ -7,13 +7,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStar as fasFaStar } from '@fortawesome/free-solid-svg-icons'
 import { faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 import './Review.css'
-import { Link } from 'react-router-dom';
 library.add(fasFaStar, faStarHalfAlt)
 
 
 const Review = (props) => {
     const { name, email, star, comment } = props.review;
-    const rating = parseInt(star)
+    const rating = parseFloat(star)
 
     let starReview;
 
