@@ -14,7 +14,7 @@ const Banner = () => {
                 <span className='text-secondary'> SERVICES</span>
             </h2>
 
-            <div className='banner mt-4 mb-5'>
+            <div className='banner mt-5 mb-5'>
                 <Carousel >
                     <Carousel.Item>
                         <img
@@ -35,7 +35,7 @@ const Banner = () => {
                             alt="Second slide" />
                         <Carousel.Caption className='text-black'>
                             <h3>Our Services</h3>
-                            <p>Oil chnage / Pre-technical check / Battery / Windscreen Wiper / Breaks</p>
+                            <p>Oil chnage / Pre-technical check / Battery / Car wash / Breaks</p>
                         </Carousel.Caption>
                     </Carousel.Item>
 
@@ -48,7 +48,7 @@ const Banner = () => {
                         <Carousel.Caption className='text-black'>
                             <h3>Car Accessories</h3>
                             <p>Buy premium car parts/accessories with best price.</p>
-                            <small>Tire / Dash covers / Seat covers / Mirrors / Fuel consumption meters / window tint
+                            <small>Tire / Dash covers / Seat covers / Mirrors / Fuel consumption meters / Window tint
                             </small>
                         </Carousel.Caption>
                     </Carousel.Item>

@@ -1,9 +1,12 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useInventory from '../../../Hooks/useInventory';
-import EditDetails from '../../Public Pages/Inventory/EditDetails/EditDetails';
 import './ManageItems.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faTrash as fasFaTrash } from '@fortawesome/free-solid-svg-icons'
+library.add(fasFaTrash)
+
 
 
 const ManageItems = () => {
@@ -75,6 +78,7 @@ const ManageItems = () => {
                                                 onClick={() => deleteItem(car._id)}
                                                 className="custom-btn update-btn ">
                                                 Delete
+                                                <FontAwesomeIcon className='ps-2' icon={fasFaTrash} />
                                             </button>
                                         </div>
                                     </div>

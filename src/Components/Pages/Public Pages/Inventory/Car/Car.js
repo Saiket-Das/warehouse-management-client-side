@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, ListGroup, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './Car.css'
+import './Car.css';
 
 
 const Car = (props) => {
@@ -27,7 +27,9 @@ const Car = (props) => {
                     <Nav.Link
                         as={Link} to={`/Inventory/${_id}`}
                         className='nav-link text-black d-flex justify-content-center'>
-                        <button className="custom-btn details-btn"><span>Read more</span></button>
+                        <button className="custom-btn details-btn">
+                            <span>Read more</span>
+                        </button>
                     </Nav.Link>
 
 

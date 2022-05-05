@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom';
 import useInventory from '../../../Hooks/useInventory';
 import useReviews from '../../../Hooks/useReviews';
 import Footer from '../../../Shared/Foooter/Footer';
-import CustomerReview from '../../../Shared/Review/CustomerReview';
 import Review from '../../../Shared/Review/Review/Review';
 import Banner from '../Banner/Banner';
 import Car from '../Inventory/Car/Car';
 import Services from '../Services/Services';
 import SocialMedia from '../Social Media/SocialMedia';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCar as fasFaCar } from '@fortawesome/free-solid-svg-icons'
 import './Home.css'
+library.add(fasFaCar)
+
 
 
 const Home = () => {
@@ -25,7 +29,7 @@ const Home = () => {
             {/*  w-75 */}
             <hr />
             <div className='container'>
-                <h2 className='text-center'>OUR INVENTORY</h2>
+                <h2 className='text-center pt-4'>OUR INVENTORY</h2>
                 <div className=" container mt-5">
                     <div className="row">
                         {
@@ -41,7 +45,8 @@ const Home = () => {
                 className='nav-link text-black d-flex justify-content-center w-25 mx-auto mb-5'>
 
                 <button style={{ width: '15rem' }} className="custom-btn p-2">
-                    <span >See More Car</span>
+                    <span className='pe-2'>See More Car</span>
+                    <FontAwesomeIcon icon={fasFaCar} />
                 </button>
             </Nav.Link>
 

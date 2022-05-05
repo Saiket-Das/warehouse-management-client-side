@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import useReviews from '../../Hooks/useReviews';
 import './CustomerReview.css'
@@ -38,6 +39,7 @@ const CustomerReview = () => {
             .then(data => {
                 console.log('Successful', data);
                 navigate('/home')
+                toast('Your comment is Submited')
                 event.target.reset();
             })
 

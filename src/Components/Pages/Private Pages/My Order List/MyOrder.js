@@ -1,11 +1,46 @@
 
-import useOrder from '../../../Hooks/useOrder';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faTrash as fasFaTrash } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState } from 'react';
+import { signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import axiosPrivate from '../../../API/axiosPrivate';
+library.add(fasFaTrash)
+
+
 
 const MyOrder = () => {
+    const [orders, setOrders] = useState([]);
+    const navigate = useNavigate()
+    const [user] = useAuthState(auth)
 
-    const [orders, serOrder] = useOrder()
-    console.log(orders)
+    useEffect(() => {
+        const myOrders = async () => {
+            const userEmail = user.email;
+            const url = `http://localhost:5000/order?email=${userEmail}`;
+            try {
+                const { data } = await axiosPrivate.get(url, {
+                })
+                setOrders(data)
+            }
 
+            catch (error) {
+                console.log(error.message);
+                const errorMsg = error.message;
+                if (error.response.status === 401 || error.response.status === 403) {
+                    toast(errorMsg)
+                    signOut(auth);
+                    navigate('/login')
+                }
+            }
+        }
+        myOrders()
+
+    }, [user])
 
     const deleteItem = (id) => {
         const URL = `http://localhost:5000/order/${id}`;
@@ -18,7 +53,7 @@ const MyOrder = () => {
                 .then(res => res.json())
                 .then(data => {
                     const remainingOrders = orders.filter(order => order._id !== id);
-                    serOrder(remainingOrders)
+                    setOrders(remainingOrders)
                 })
         }
     }
@@ -57,6 +92,7 @@ const MyOrder = () => {
                                             onClick={() => deleteItem(order._id)}
                                             className="custom-btn update-btn ">
                                             Delete
+                                            <FontAwesomeIcon className='ps-2' icon={fasFaTrash} />
                                         </button>
                                     </div>
                                 </div>
