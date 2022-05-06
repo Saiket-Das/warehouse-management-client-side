@@ -11,12 +11,32 @@ library.add(fasFaStar, faStarHalfAlt)
 
 
 const Review = (props) => {
-    const { name, email, star, comment } = props.review;
+    const { name, userEmail, star, comment } = props.review;
     const rating = parseFloat(star)
 
     let starReview;
 
-    if (rating === 3) {
+    if (rating === 1) {
+        starReview = <span>
+            <FontAwesomeIcon icon={fasFaStar} />
+        </span>
+    }
+
+    else if (rating === 2) {
+        starReview = <span>
+            <FontAwesomeIcon icon={fasFaStar} />
+            <FontAwesomeIcon icon={fasFaStar} />
+        </span>
+    }
+    else if (rating === 2.5) {
+        starReview = <span>
+            <FontAwesomeIcon icon={fasFaStar} />
+            <FontAwesomeIcon icon={fasFaStar} />
+            <FontAwesomeIcon icon={faStarHalfAlt} />
+        </span>
+    }
+
+    else if (rating === 3) {
         starReview = <span>
             <FontAwesomeIcon icon={fasFaStar} />
             <FontAwesomeIcon icon={fasFaStar} />
@@ -65,7 +85,7 @@ const Review = (props) => {
             <Card className='rating-card-style' style={{ width: '20rem' }}>
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{email}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted">{userEmail}</Card.Subtitle>
                     <Card.Text>
                         {comment}
                     </Card.Text>

@@ -1,10 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useInventory from '../../../Hooks/useInventory';
 import './ManageItems.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTrash as fasFaTrash } from '@fortawesome/free-solid-svg-icons'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init';
+import { Nav } from 'react-bootstrap';
 library.add(fasFaTrash)
 
 
@@ -12,11 +15,29 @@ library.add(fasFaTrash)
 const ManageItems = () => {
     const navigate = useNavigate()
     const [cars, setCars] = useInventory([])
+    const [user] = useAuthState(auth);
+
+    const userEmail = user.email;
+
+    const deleteAll = (email) => {
+        const areYouSure = window.confirm('Are you sure?')
+        if (areYouSure) {
+            const url = `http://localhost:5000/inventory?email=${email}`
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
+        }
+    }
+
 
     const deleteItem = (id) => {
         const areYouSure = window.confirm('Are you sure?')
         if (areYouSure) {
-            const url = `http://localhost:5000/inventory/${id}`
+            const url = `http://localhost:5000/inventory?email=${id}`
             fetch(url, {
                 method: 'DELETE'
             })
@@ -91,6 +112,22 @@ const ManageItems = () => {
                     )}
 
             </div >
+
+
+            {/* DELETE ALL ITEMS  */}
+
+
+
+            <Nav.Link
+                as={Link} to={'/inventory'}
+                className='nav-link text-black d-flex justify-content-center'>
+                <button style={{ width: '20rem' }} className="custom-btn details-btn"
+                    onClick={() => deleteAll(userEmail)}>
+                    <span className='pe-2'>Delete your all cars</span>
+                    <FontAwesomeIcon icon={fasFaTrash} />
+                </button>
+            </Nav.Link>
+
         </div >
     );
 };

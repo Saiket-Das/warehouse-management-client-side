@@ -17,6 +17,7 @@ import MyOrder from './Components/Pages/Private Pages/My Order List/MyOrder';
 import MyItems from './Components/Pages/Private Pages/My Items/MyItems';
 import EditDetails from './Components/Pages/Public Pages/Inventory/EditDetails/EditDetails';
 import CustomerReview from './Components/Shared/Review/CustomerReview';
+import Blogs from './Components/Pages/Public Pages/Blogs/Blogs';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/inventory' element={<Inventory></Inventory>}>Imventory</Route>
         <Route path='/inventory/:carId' element={<CarDetails></CarDetails>}>Imventory</Route>
         <Route path='/review' element={<CustomerReview></CustomerReview>}>Reviews</Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}>Blogs</Route>
 
 
 
