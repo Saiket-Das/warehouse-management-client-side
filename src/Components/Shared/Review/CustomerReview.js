@@ -27,7 +27,7 @@ const CustomerReview = () => {
 
         const data = { userEmail, comment, name, star }
 
-        const idURL = 'http://localhost:5000/review';
+        const idURL = 'https://salty-escarpment-87764.herokuapp.com/review';
         fetch(idURL, {
             method: 'POST',
             headers: {

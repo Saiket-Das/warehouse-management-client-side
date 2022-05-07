@@ -22,8 +22,8 @@ const ManageItems = () => {
     const deleteAll = (email) => {
         const areYouSure = window.confirm('Are you sure?')
         if (areYouSure) {
-            // const url = `http://localhost:5000/inventory?email=${email}`
-            const url = `http://localhost:5000/inventory?page=1&size=0`
+            // const url = `https://salty-escarpment-87764.herokuapp.com/inventory?email=${email}`
+            const url = `https://salty-escarpment-87764.herokuapp.com/inventory?page=1&size=0`
             fetch(url, {
                 method: 'DELETE'
             })
@@ -38,7 +38,7 @@ const ManageItems = () => {
     const deleteItem = (id) => {
         const areYouSure = window.confirm('Are you sure?')
         if (areYouSure) {
-            const url = `http://localhost:5000/inventory/${id}`
+            const url = `https://salty-escarpment-87764.herokuapp.com/inventory/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

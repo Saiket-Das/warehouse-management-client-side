@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../../../firebase.init';
+import useToken from '../../../../Hooks/useToken';
 import Loading from '../../../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Register.css'
@@ -23,9 +24,12 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, error1] = useUpdateProfile(auth);
 
+    console.log(user)
+    const [token] = useToken(user)
 
-    if (user) {
-        navigate('/')
+
+    if (token) {
+        navigate('/home')
     }
     if (loading) {
         <Loading></Loading>

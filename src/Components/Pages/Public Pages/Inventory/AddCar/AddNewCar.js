@@ -11,7 +11,7 @@ const AddNewCar = () => {
     const [user] = useAuthState(auth);
 
     const addNewCar = data => {
-        const url = 'http://localhost:5000/inventory';
+        const url = 'https://salty-escarpment-87764.herokuapp.com/inventory';
         fetch(url, {
             method: 'POST',
             headers: {

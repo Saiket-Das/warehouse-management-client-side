@@ -27,7 +27,7 @@ const Checkout = () => {
             address: event.target.address.value,
             phone: event.target.phone.value,
         }
-        const url = 'http://localhost:5000/order';
+        const url = 'https://salty-escarpment-87764.herokuapp.com/order';
         axios.post(url, order)
             .then(respone => {
                 const { data } = respone;
@@ -46,7 +46,7 @@ const Checkout = () => {
 
         const updateData = { updateQuantity };
 
-        const idURL = `http://localhost:5000/inventory/${carId}`;
+        const idURL = `https://salty-escarpment-87764.herokuapp.com/inventory/${carId}`;
         fetch(idURL, {
             method: 'PUT',
             headers: {

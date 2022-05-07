@@ -6,7 +6,7 @@ import auth from '../../../../../firebase.init'
 import './Login.css'
 import Loading from '../../../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import axios from 'axios';
+import useToken from '../../../../Hooks/useToken';
 
 
 
@@ -32,6 +32,7 @@ const Login = () => {
     // PASSWORD RESET 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
+    const [token] = useToken(user)
     if (loading || sending) {
         return <Loading></Loading>
     }
@@ -40,21 +41,18 @@ const Login = () => {
     if (error) {
         errorMsg = <p className='text-center text-danger'>{error?.message.slice(22, -2)}</p>
     }
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
+
     const handleLoginForm = async (event) => {
         event.preventDefault()
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('http://localhost:5000/login', { email })
-        localStorage.setItem('token', data.token)
-        navigate(from, { replace: true });
-
     }
-
-    if (user) {
-    }
-
 
 
     // PASSWORD RESET 

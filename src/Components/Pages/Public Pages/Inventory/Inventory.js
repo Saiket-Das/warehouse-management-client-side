@@ -15,13 +15,13 @@ const Inventory = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/inventory?page=${page}&size=${size}`)
+        fetch(`https://salty-escarpment-87764.herokuapp.com/inventory?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => setSelectedCars(data));
     }, [page, size]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/totalCar')
+        fetch('https://salty-escarpment-87764.herokuapp.com/totalCar')
             .then(res => res.json())
             .then(data => {
                 const count = data.count;

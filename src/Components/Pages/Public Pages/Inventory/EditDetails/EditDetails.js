@@ -18,7 +18,7 @@ const EditDetails = () => {
         const updateData = { Quantity, Description };
         console.log(updateData)
 
-        const idURL = `http://localhost:5000/inventory/${carId}`;
+        const idURL = `https://salty-escarpment-87764.herokuapp.com/inventory/${carId}`;
         fetch(idURL, {
             method: 'PUT',
             headers: {

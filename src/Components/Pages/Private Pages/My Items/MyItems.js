@@ -10,7 +10,7 @@ const MyItems = () => {
     const [user] = useAuthState(auth)
     const userEmail = user.email;
 
-    const url = `http://localhost:5000/inventory?email=${userEmail}`;
+    const url = `https://salty-escarpment-87764.herokuapp.com/inventory?email=${userEmail}`;
 
     useEffect(() => {
         fetch(url)

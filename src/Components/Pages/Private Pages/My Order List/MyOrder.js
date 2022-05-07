@@ -21,7 +21,7 @@ const MyOrder = () => {
     useEffect(() => {
         const myOrders = async () => {
             const userEmail = user.email;
-            const url = `http://localhost:5000/order?email=${userEmail}`;
+            const url = `https://salty-escarpment-87764.herokuapp.com/order?email=${userEmail}`;
             try {
                 const { data } = await axiosPrivate.get(url, {
                 })
@@ -43,7 +43,7 @@ const MyOrder = () => {
     }, [user])
 
     const deleteItem = (id) => {
-        const URL = `http://localhost:5000/order/${id}`;
+        const URL = `https://salty-escarpment-87764.herokuapp.com/order/${id}`;
 
         const areYouSure = window.confirm('Are you sure?')
         if (areYouSure) {
