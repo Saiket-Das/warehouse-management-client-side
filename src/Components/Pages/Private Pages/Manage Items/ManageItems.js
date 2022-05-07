@@ -22,13 +22,14 @@ const ManageItems = () => {
     const deleteAll = (email) => {
         const areYouSure = window.confirm('Are you sure?')
         if (areYouSure) {
-            const url = `http://localhost:5000/inventory?email=${email}`
+            // const url = `http://localhost:5000/inventory?email=${email}`
+            const url = `http://localhost:5000/inventory?page=1&size=0`
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    setCars(data)
                 })
         }
     }
@@ -37,7 +38,7 @@ const ManageItems = () => {
     const deleteItem = (id) => {
         const areYouSure = window.confirm('Are you sure?')
         if (areYouSure) {
-            const url = `http://localhost:5000/inventory?email=${id}`
+            const url = `http://localhost:5000/inventory/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
